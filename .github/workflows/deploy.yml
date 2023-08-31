@@ -15,12 +15,12 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2  # Updated to version 2
         with:
-          node-version: 16
+          node-version: 16  # Updated to Node.js version 16
 
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: npm ci
 
       - name: Build project
         run: npm run build
@@ -48,4 +48,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist 
+          publish_dir: ./dist
